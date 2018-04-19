@@ -24,7 +24,7 @@ extensions = [
 ]
 
 intersphinx_mapping = {
-    'python': ('http://docs.python.org/3.6', None),
+    'python': ('http://docs.python.org/3', None),
     'django': ('https://docs.djangoproject.com/en/dev/',
                'https://docs.djangoproject.com/en/dev/_objects/'),
 }
