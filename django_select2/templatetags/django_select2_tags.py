@@ -2,11 +2,11 @@
 from __future__ import absolute_import, unicode_literals
 
 from django import template
+from django.utils.safestring import mark_safe
 
 from django_select2.media import (get_select2_css_libs,
                                   get_select2_heavy_js_libs,
                                   get_select2_js_libs)
-
 register = template.Library()
 
 
@@ -24,12 +24,12 @@ def import_js(light=0):
         js_files = get_select2_js_libs()
     else:
         js_files = get_select2_heavy_js_libs()
-    return '\n'.join(script_tag(js_file) for js_file in js_files)
+    return mark_safe('\n'.join(script_tag(js_file) for js_file in js_files))
 
 
 @register.simple_tag(name='import_django_select2_css')
 def import_css(light=0):
-    return '\n'.join(link_tag(css_file) for css_file in get_select2_css_libs(light=light))
+    return mark_safe('\n'.join(link_tag(css_file) for css_file in get_select2_css_libs(light=light)))
 
 
 @register.simple_tag(name='import_django_select2_js_css')
